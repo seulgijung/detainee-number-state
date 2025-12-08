@@ -26,7 +26,10 @@ jobs:
       with:
         python-version: '3.13.9'
     - name: Install all necessary packages
-      run: pip install jupyter lxml pandas requests beautifulsoup4 html5lib playwright playwright install firefox
+      run: |
+        python -m pip install --upgrade pip
+        python -m pip install jupyter lxml pandas requests beautifulsoup4 html5lib playwright
+        playwright install firefox
     - name: Scraping today's data
       run: jupyter nbconvert --to notebook --execute "detainees.ipynb" --stdout
     - name: Commit and push any changes
