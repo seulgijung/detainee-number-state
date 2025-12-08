@@ -22,7 +22,7 @@ jobs:
 
     - name: Install all necessary packages
       run: |
-        pip install jupyter lxml pandas requests beautifulsoup4 html5lib playwright install firefox
+        pip install jupyter playwright pandas requests beautifulsoup4 playwright install firefox
 
     - name: Scraping today's data
       run: jupyter nbconvert --to notebook --execute "detainees.ipynb" --stdout
