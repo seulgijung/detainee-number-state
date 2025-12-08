@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@400;500;700&display=swap" rel="stylesheet">
@@ -9,25 +10,40 @@
             margin: 0;
             background-color: rgb(255, 255, 255);
         }
+
         /* Make the page 700px wide, centered */
         .container {
-            width: 700px;
+            width: 900px;
             margin: 4em auto;
         }
+
         /* Use a nice font */
         body {
             font-family: "Roboto Serif";
         }
 
         h1 {
+            width: 800px;
             text-align: center;
             font-size: 3em;
-            margin: 2em 0;
+            margin: 1em 0;
         }
 
+        p {
+            text-align: center;
+            font-size: 16px;
+            margin: 1em 0;
+        }
+
+        .note {
+            font-size: 20px;
+        }
+
+
         .graphic {
-            max-width: 500px;
-            margin: 2em auto;
+            flex: 1;
+            max-width: 50%;
+            margin: 3em 0;
         }
 
         #footer {
@@ -36,15 +52,62 @@
             /* background-color: #f0f1ff; */
             border-top: solid white 5px;
         }
+
+        .content-row {
+            display: flex;
+            gap: 60px;
+            /* 그래프와 글 사이 간격 */
+            align-items: flex-start;
+        }
+
+        .text-box {
+            flex: 1;
+            text-align: left;
+            margin-top: 70px;
+        }
+
+        .text-box p {
+            text-align: left;
+            /* 기존 p가 center라서 덮어쓰기 */
+        }
+
+        @media (max-width: 900px) {
+            .content-row {
+                flex-direction: column;
+            }
+
+            .graphic,
+            .text-box {
+                max-width: 100%;
+            }
+        }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h1>Detention Facilities Average Daily Population</h1>
-        <h3>The chart shows the number of migrants and immigrants detained by the federal government by each state and territory. Since the Trump administration's second term, the U.S Immigration and Customs Enforcement (ICE) has conducted forceful raids across the nation, causing the number to soar sharply in spite of local efforts to protect their vulnerable neighbors.</h3>
-        <p>The map below auto-updates every day. The date comes from <a href="https://tracreports.org/immigration/detentionstats/facilities.html" >TRAC Immigration</a>.</p>
-        <div class="graphic">
-         <iframe title="Detention Facilities Average Daily Population" aria-label="Choropleth map" id="datawrapper-chart-x4mhu" src="https://datawrapper.dwcdn.net/x4mhu/3/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="537" data-external="1"></iframe><script type="text/javascript">window.addEventListener("message",function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r,i=0;r=e[i];i++)if(r.contentWindow===a.source){var d=a.data["datawrapper-height"][t]+"px";r.style.height=d}}});</script>
+        <div class="content-row">
+            <div class="graphic">
+                <iframe title="Detention Facilities Average Daily Population" aria-label="Choropleth map"
+                    id="datawrapper-chart-x4mhu" src="https://datawrapper.dwcdn.net/x4mhu/3/" scrolling="no"
+                    frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="537"
+                    data-external="1"></iframe>
+                <script
+                    type="text/javascript">window.addEventListener("message", function (a) { if (void 0 !== a.data["datawrapper-height"]) { var e = document.querySelectorAll("iframe"); for (var t in a.data["datawrapper-height"]) for (var r, i = 0; r = e[i]; i++)if (r.contentWindow === a.source) { var d = a.data["datawrapper-height"][t] + "px"; r.style.height = d } } });</script>
+            </div>
+            <div class="text-box">
+                <p class="note">The map shows the number of migrants and immigrants detained by the federal government
+                    by each state and territory. Since the Trump administration's second term, the U.S Immigration and
+                    Customs Enforcement (ICE) has conducted forceful raids across the nation, causing the number to soar
+                    sharply in spite of local efforts to protect their vulnerable neighbors.</p>
+                <p>Created by Seulgi Jung, the chart above auto-updates every day using the data from <a
+                        href="https://tracreports.org/immigration/detentionstats/facilities.html">TRAC Immigration</a>. 
+                </p>
+            </div>
         </div>
     </div>
+    </div>
+</body>
+
 </html>
