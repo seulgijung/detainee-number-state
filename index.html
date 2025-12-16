@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@400;500;700&display=swap" rel="stylesheet">
     <title>Detention Facilities Average Daily Population</title>
     <style>
@@ -15,10 +15,11 @@
         /* Make the page 700px wide, centered */
         .container {
             max-width: 900px;
+            width: 100%;
             margin: 4em auto;
         }
 
-        /* Use a nice font */
+
         body {
             font-family: "Roboto Serif";
         }
@@ -26,7 +27,8 @@
         h1 {
             width: 100%;
             text-align: center;
-            font-size: 3em;
+            font-size: clamp(1.8rem, 5vw, 3em);
+            text-wrap: balance;
             margin: 1em 0;
         }
 
@@ -47,6 +49,12 @@
             margin: 3em 0;
         }
 
+        .graphic iframe{
+            display: block;        
+            width: 100%;
+            margin: 0 auto;      
+        }
+
         #footer {
             text-align: center;
             padding: 4em;
@@ -57,7 +65,6 @@
         .content-row {
             display: flex;
             gap: 60px;
-            /* 그래프와 글 사이 간격 */
             align-items: flex-start;
         }
 
@@ -69,17 +76,32 @@
 
         .text-box p {
             text-align: left;
-            /* 기존 p가 center라서 덮어쓰기 */
+
         }
 
         @media (max-width: 900px) {
             .content-row {
                 flex-direction: column;
+                align-items: center;
             }
 
             .graphic,
             .text-box {
                 max-width: 100%;
+                margin: 1em 0;
+            }
+
+            p {
+                font-size: 15px;     
+            }
+
+            .note {
+                font-size: 19px;     
+            }
+
+            .text-box{
+                padding: 0 20px;
+                margin-top: 0;
             }
         }
     </style>
@@ -87,12 +109,12 @@
 
 <body>
     <div class="container">
-        <h1>Detention Facilities Average Daily Population</h1>
+        <h1>Detention Facilities<br>Average Daily Population</h1>
         <div class="content-row">
             <div class="graphic">
                 <iframe title="Detention Facilities Average Daily Population" aria-label="Choropleth map"
                     id="datawrapper-chart-x4mhu" src="https://datawrapper.dwcdn.net/x4mhu/3/" scrolling="no"
-                    frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="537"
+                    frameborder="0" style="width: 100%; min-width: 100% !important; border: none;" height="537"
                     data-external="1"></iframe>
                 <script
                     type="text/javascript">window.addEventListener("message", function (a) { if (void 0 !== a.data["datawrapper-height"]) { var e = document.querySelectorAll("iframe"); for (var t in a.data["datawrapper-height"]) for (var r, i = 0; r = e[i]; i++)if (r.contentWindow === a.source) { var d = a.data["datawrapper-height"][t] + "px"; r.style.height = d } } });</script>
